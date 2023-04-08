@@ -7,7 +7,6 @@ import java.util.Properties;
 
 public class Config {
     private static final String CONFIG_FILE = "config.properties";
-
     private final BigDecimal basicTaxRate;
     private final BigDecimal importTaxRate;
     private final BigDecimal roundingFactor;

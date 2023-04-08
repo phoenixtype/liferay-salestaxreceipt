@@ -23,9 +23,9 @@ public class ReceiptGeneratorTest {
     @BeforeEach
     public void setUp() {
         taxCalculator = mock(TaxCalculator.class);
-        when(taxCalculator.calculateTax("book", new BigDecimal("12.49"))).thenReturn(BigDecimal.ZERO);
-        when(taxCalculator.calculateTax("music CD", new BigDecimal("14.99"))).thenReturn(new BigDecimal("1.50"));
-        when(taxCalculator.calculateTax("chocolate bar", new BigDecimal("0.85"))).thenReturn(BigDecimal.ZERO);
+        when(taxCalculator.calculateTax("book", new BigDecimal("12.49"), item.getQuantity())).thenReturn(BigDecimal.ZERO);
+        when(taxCalculator.calculateTax("music CD", new BigDecimal("14.99"), item.getQuantity())).thenReturn(new BigDecimal("1.50"));
+        when(taxCalculator.calculateTax("chocolate bar", new BigDecimal("0.85"), item.getQuantity())).thenReturn(BigDecimal.ZERO);
 
         receiptGenerator = new ReceiptGenerator(taxCalculator);
     }

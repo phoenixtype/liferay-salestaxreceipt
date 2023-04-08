@@ -30,25 +30,25 @@ public class TaxCalculatorTest {
 
     @Test
     public void testCalculateTaxForNonExemptNonImportedItem() {
-        BigDecimal tax = taxCalculator.calculateTax("non-exempt item", new BigDecimal("10.00"));
+        BigDecimal tax = taxCalculator.calculateTax("non-exempt item", new BigDecimal("10.00"), item.getQuantity());
         assertEquals(new BigDecimal("1.00"), tax);
     }
 
     @Test
     public void testCalculateTaxForExemptNonImportedItem() {
-        BigDecimal tax = taxCalculator.calculateTax("book", new BigDecimal("10.00"));
+        BigDecimal tax = taxCalculator.calculateTax("book", new BigDecimal("10.00"), item.getQuantity());
         assertEquals(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP), tax);
     }
 
     @Test
     public void testCalculateTaxForNonExemptImportedItem() {
-        BigDecimal tax = taxCalculator.calculateTax("imported non-exempt item", new BigDecimal("10.00"));
+        BigDecimal tax = taxCalculator.calculateTax("imported non-exempt item", new BigDecimal("10.00"), item.getQuantity());
         assertEquals(new BigDecimal("1.50"), tax);
     }
 
     @Test
     public void testCalculateTaxForExemptImportedItem() {
-        BigDecimal tax = taxCalculator.calculateTax("imported book", new BigDecimal("10.00"));
+        BigDecimal tax = taxCalculator.calculateTax("imported book", new BigDecimal("10.00"), item.getQuantity());
         assertEquals(new BigDecimal("0.50"), tax);
     }
 }

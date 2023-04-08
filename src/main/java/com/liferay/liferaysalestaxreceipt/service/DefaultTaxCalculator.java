@@ -44,10 +44,4 @@ public class DefaultTaxCalculator implements TaxCalculator {
     private boolean isTaxExempt(String itemName) {
         return exemptItems.stream().anyMatch(itemName.toLowerCase()::contains);
     }
-
-/*
-        private boolean isTaxExempt(String itemName) {
-        return itemName.contains("book") || itemName.contains("chocolate") || itemName.contains("pills");
-    }
- */
 }

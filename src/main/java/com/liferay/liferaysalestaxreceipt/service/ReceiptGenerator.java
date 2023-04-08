@@ -24,7 +24,7 @@ public class ReceiptGenerator {
             BigDecimal salesTax = taxCalculator.calculateTax(item.getName(), item.getPrice());
             BigDecimal totalPrice = item.getPrice().add(salesTax).multiply(new BigDecimal(item.getQuantity()));
 
-            totalSalesTax = totalSalesTax.add(salesTax);
+            totalSalesTax = totalSalesTax.add(salesTax.multiply(BigDecimal.valueOf(item.getQuantity())));
             totalCost = totalCost.add(totalPrice);
 
             receiptItems.add(new ReceiptItem(item, totalPrice));
