@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salestaxreceipt-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: salestaxreceipt
+  template:
+    metadata:
+      labels:
+        app: salestaxreceipt
+    spec:
+      containers:
+        - name: salestaxreceipt
+          image: phoenixtype/salestaxreceipt:1.0
+          ports:
+            - containerPort: 8080
