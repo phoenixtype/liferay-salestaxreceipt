@@ -7,6 +7,10 @@ import com.liferay.liferaysalestaxreceipt.service.DefaultTaxCalculator;
 import com.liferay.liferaysalestaxreceipt.service.SalesTaxApp;
 import com.liferay.liferaysalestaxreceipt.service.TaxCalculator;
 
+/*
+ SalesTaxCalculator, is the main class of a Sales Tax Calculation application.
+ It contains the main method, which is the entry point of the application when it is executed.
+ */
 
 public class SalesTaxCalculator {
     public static void main(String[] args) {

@@ -13,6 +13,7 @@ public class Config {
 
     public Config() {
         Properties properties = new Properties();
+        //An input stream that reads the content of the config.properties file
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(CONFIG_FILE)) {
             if (inputStream == null) {
                 throw new IllegalStateException("Configuration file not found: " + CONFIG_FILE);
