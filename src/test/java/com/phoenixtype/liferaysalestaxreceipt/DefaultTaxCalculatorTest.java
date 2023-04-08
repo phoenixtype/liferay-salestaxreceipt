@@ -25,7 +25,7 @@ class DefaultTaxCalculatorTest {
     void testExemptItem() {
         BigDecimal price = new BigDecimal("12.49");
         BigDecimal expectedTax = BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
-        BigDecimal actualTax = taxCalculator.calculateTax("book", price, item.getQuantity());
+        BigDecimal actualTax = taxCalculator.calculateTax("book", price);
         assertEquals(expectedTax, actualTax);
     }
 
@@ -33,7 +33,7 @@ class DefaultTaxCalculatorTest {
     void testNonExemptItem() {
         BigDecimal price = new BigDecimal("14.99");
         BigDecimal expectedTax = new BigDecimal("1.50");
-        BigDecimal actualTax = taxCalculator.calculateTax("music CD", price, item.getQuantity());
+        BigDecimal actualTax = taxCalculator.calculateTax("music CD", price);
         assertEquals(expectedTax, actualTax);
     }
 
@@ -41,7 +41,7 @@ class DefaultTaxCalculatorTest {
     void testImportedExemptItem() {
         BigDecimal price = new BigDecimal("10.00");
         BigDecimal expectedTax = new BigDecimal("0.50");
-        BigDecimal actualTax = taxCalculator.calculateTax("imported box of chocolates", price, item.getQuantity());
+        BigDecimal actualTax = taxCalculator.calculateTax("imported box of chocolates", price);
         assertEquals(expectedTax, actualTax);
     }
 
@@ -49,7 +49,7 @@ class DefaultTaxCalculatorTest {
     void testImportedNonExemptItem() {
         BigDecimal price = new BigDecimal("47.50");
         BigDecimal expectedTax = new BigDecimal("7.15");
-        BigDecimal actualTax = taxCalculator.calculateTax("imported bottle of perfume", price, item.getQuantity());
+        BigDecimal actualTax = taxCalculator.calculateTax("imported bottle of perfume", price);
         assertEquals(expectedTax, actualTax);
     }
 
@@ -57,7 +57,7 @@ class DefaultTaxCalculatorTest {
     void testZeroPrice() {
         BigDecimal price = BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
         BigDecimal expectedTax = BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
-        BigDecimal actualTax = taxCalculator.calculateTax("bottle of perfume", price, item.getQuantity());
+        BigDecimal actualTax = taxCalculator.calculateTax("bottle of perfume", price);
         assertEquals(expectedTax, actualTax);
     }
 
@@ -65,7 +65,7 @@ class DefaultTaxCalculatorTest {
     void testEdgeCaseHighPrice() {
         BigDecimal price = new BigDecimal("10000.00");
         BigDecimal expectedTax = new BigDecimal("1000.00");
-        BigDecimal actualTax = taxCalculator.calculateTax("expensive non-exempt item", price, item.getQuantity());
+        BigDecimal actualTax = taxCalculator.calculateTax("expensive non-exempt item", price);
         assertEquals(expectedTax, actualTax);
     }
 }
